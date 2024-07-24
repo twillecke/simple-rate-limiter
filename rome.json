@@ -1,0 +1,32 @@
+{
+	"$schema": "https://docs.rome.tools/schemas/12.1.3/schema.json",
+	"formatter": {
+		"enabled": true,
+		"formatWithErrors": false,
+		"indentStyle": "space",
+		"indentSize": 2,
+		"lineWidth": 120,
+		"ignore": ["node_modules/*", "build/", "*.test.ts", "test/*", "packages/*", "*.json"]
+	},
+	"linter": {
+		"enabled": true,
+		"ignore": ["node_modules/*", "build/", "*.test.ts", "test/*", "packages/*", "*.json"],
+		"rules": {
+			"recommended": true,
+			"correctness": {
+				"noUnusedVariables": "warn",
+        "noVoidTypeReturn": "off"
+			},
+			"style": {
+				"noInferrableTypes": "off"
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single",
+			"semicolons": "always",
+			"spaceBeforeFunctionParenthesis": true
+		}
+	}
+}
