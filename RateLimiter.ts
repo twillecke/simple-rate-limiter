@@ -1,4 +1,4 @@
-import { BucketsStorageInterface, ClientTokenBucket } from './BucketsStorage';
+import type { BucketsStorageInterface, ClientTokenBucket } from './BucketsStorage';
 
 export enum RateLimiterMessage {
   ACCEPTED = 'Accepted request: enough tokens',
@@ -42,9 +42,8 @@ export class RateLimiter {
     if (clientBucket.availableTokens > 0) {
       this.bucketsStorage.decreaseTokens(clientId);
       return { message: RateLimiterMessage.ACCEPTED };
-    } else {
-      throw new RateLimitError(RateLimiterMessage.REJECTED);
     }
+    throw new RateLimitError(RateLimiterMessage.REJECTED);
   }
 
   private initializeClientBucket(clientId: string) {
